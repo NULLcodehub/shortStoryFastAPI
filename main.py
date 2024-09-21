@@ -21,12 +21,12 @@ async def summraize_text(request:summraizeContent):
     content=request.content
     response=client.generate(
         prompt=f'summrize this content in 70 words:{content}',
-        max_tokens=100
+        # max_tokens=100
     )
     summary=response.generations[0].text.strip()
     
     if not summary:
-        return ({'summary': content[:70]})
+        return ({'summary': content})
     else:
     
         return({"summary": summary})
